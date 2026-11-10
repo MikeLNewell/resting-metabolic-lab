@@ -16,8 +16,12 @@ jobs:
           cat payload/part-{1..8}.txt | base64 --decode > /tmp/website.tar.xz
           tar -xJf /tmp/website.tar.xz
           rm -rf payload
-      - name: Validate calculations
-        run: node tests/science.test.mjs
+          rm -f .github/workflows/tests.yml
+      - name: Validate scientific calculations and syntax
+        run: |
+          node tests/science.test.mjs
+          node --check app.js
+          node --check xlsx.mjs
       - name: Commit website
         run: |
           git config user.name "github-actions[bot]"
