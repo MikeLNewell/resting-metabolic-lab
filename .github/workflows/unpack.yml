@@ -2,7 +2,7 @@ name: Unpack website
 on:
   push:
     paths:
-      - 'site-payload.txt'
+      - 'payload/part-8.txt'
   workflow_dispatch:
 permissions:
   contents: write
@@ -11,12 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Extract website files
+      - name: Extract full site archive
         run: |
-          base64 --decode site-payload.txt > /tmp/website.zip
-          unzip -q -o /tmp/website.zip -d /tmp/website
-          cp -a /tmp/website/the-metabolic-lab/. .
-          rm -f site-payload.txt
+          cat payload/part-{1..8}.txt | base64 --decode > /tmp/website.tar.xz
+          tar -xJf /tmp/website.tar.xz
+          rm -rf payload
       - name: Validate calculations
         run: node tests/science.test.mjs
       - name: Commit website
