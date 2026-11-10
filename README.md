@@ -1,6 +1,6 @@
 # The Metabolic Lab
 
-Fasted vs Fed: The Science of Substrate Oxidation. A self-contained, local-first interactive practical for University of Bedfordshire undergraduate Performance Nutrition students.
+Fasted vs Fed: The Science of Substrate Oxidation. A self-contained, local-first interactive practical for University of Bedfordshire undergraduate Principles of Nutrition students.
 
 ## Use it
 
