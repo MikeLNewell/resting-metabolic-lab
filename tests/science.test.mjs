@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import {calculate,asMl,delta,parseCsv,toCsv,parseTime,lastFive,readTeamCsv,HEADERS} from '../science.mjs';
+const close=(a,b)=>assert.ok(Math.abs(a-b)<1e-8,`${a} != ${b}`);
+assert.equal(asMl(.25,'l'),250);
+const r=calculate(250,200);close(r.rer,.8);close(r.fat,83.5);close(r.cho,107.5);close(r.efat,.7515);close(r.echo,.43);close(r.total,1.1815);
+close(calculate(.25,.2,'l').total,r.total);
+assert.equal(calculate(0,0),null);
+assert.equal(calculate(-1,100),null);
+const abnormal=calculate(200,230);assert.equal(abnormal.fat<0,true);assert.equal(abnormal.warnings.length>0,true);
+assert.deepEqual(delta(1.2,1),{absolute:.19999999999999996,percent:19.999999999999996});
+const csv=toCsv([['name','note'],['A','hello, "world"\nline 2']]);assert.deepEqual(parseCsv(csv),[['name','note'],['A','hello, "world"\nline 2']]);
+assert.equal(parseTime('00:10:30'),630);assert.equal(parseTime('10:30'),630);
+const readings=Array.from({length:11},(_,i)=>[String(i),String(i<5?200:250),'200']);
+const m=lastFive(readings,{timeIndex:0,oIndex:1,cIndex:2,timeUnit:'min'});close(m.vo2,250);close(m.vco2,200);assert.equal(m.count,6);
+const lab=toCsv([HEADERS,['A','anon','Fasted baseline',250,200,'ml',250,200,.8,83.5,107.5,.7515,.43,1.1815,120]]);
+assert.equal(readTeamCsv(lab)[0]['Team'],'A');
+console.log('All scientific calculation and CSV tests passed.');
