@@ -82,4 +82,4 @@ Scientific calculation tests cover unit conversion, RER, oxidation rates, energy
 
 Frayn, K. N. (1983). Calculation of substrate oxidation rates in vivo from gaseous exchange. *Journal of Applied Physiology*, 55(2), 628–634.
 
-Original teaching material: Dr Julia Fruer.
+Practical lead: Dr Mike Newell.
