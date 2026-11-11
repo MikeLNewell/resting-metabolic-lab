@@ -83,3 +83,7 @@ Scientific calculation tests cover unit conversion, RER, oxidation rates, energy
 Frayn, K. N. (1983). Calculation of substrate oxidation rates in vivo from gaseous exchange. *Journal of Applied Physiology*, 55(2), 628–634.
 
 Practical lead: Dr Mike Newell.
+
+## Licence and copyright
+
+© 2026 Dr Mike Newell. All rights reserved in original material to the extent the relevant rights are held by Dr Mike Newell. The website is publicly accessible for student learning, but is **not released under an open-source or Creative Commons licence**. Please see [LICENSE.md](LICENSE.md) and the [public licence page](licence.html) for permitted use, attribution, third-party rights and permission requests.
